@@ -28,7 +28,7 @@ pipeline {
             steps {
                 echo 'Sonar Scanner'
 			    withSonarQubeEnv('SonarQube Server') {
-			    	sh '/optsonar-scanner/bin/sonar-scanner'
+			    	sh '/opt/sonar-scanner/bin/sonar-scanner'
 			    }
             }
         }
