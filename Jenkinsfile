@@ -24,14 +24,6 @@ pipeline {
                 jacoco()
             }
         }
-        stage('Sonar') {
-            steps {
-                echo 'Sonar Scanner'
-			    withSonarQubeEnv('SonarQube Server') {
-			    	sh '/opt/sonar-scanner/bin/sonar-scanner'
-			    }
-            }
-        }
         stage('Package') {
             steps {
                 echo 'Packaging'
