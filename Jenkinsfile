@@ -27,31 +27,12 @@ pipeline {
         stage('Package') {
             steps {
                 echo 'Packaging'
-                sh 'mvn package -DskipTests'
+                sh 'mvn package'
             }
         }
         stage('Deploy') {
             steps {
-                echo ''
+                sh '/opt/apache-tomcat-7.0.91/webapps'
             }
         }
     }
-    
-    post {
-        always {
-            echo 'JENKINS PIPELINE'
-        }
-        success {
-            echo 'JENKINS PIPELINE SUCCESSFUL'
-        }
-        failure {
-            echo 'JENKINS PIPELINE FAILED'
-        }
-        unstable {
-            echo 'JENKINS PIPELINE WAS MARKED AS UNSTABLE'
-        }
-        changed {
-            echo 'JENKINS PIPELINE STATUS HAS CHANGED SINCE LAST EXECUTION'
-        }
-    }
-}
